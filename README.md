@@ -2,7 +2,27 @@
 
 ## Overview
 
+The `Thread` class has been available since .NET Framework 1.0 and remains supported up to .NET 5.0. 
+The `Task` class was introduced starting from .NET Framework 4.0 and continues to be supported in subsequent versions. 
+Task received enhancements with the introduction of .NET 4.5 and further development in .NET Core and .NET 5.0, as well as subsequent versions. 
+`UniTask` is a dedicated asynchronous programming library tailored for Unity game development. It holds an advantage in handling asynchronous operations within the Unity engine, providing a more lightweight implementation along with additional features.
 
+Using the `Thread` class necessitates manual management of thread lifecycle, synchronization, and exception handling, 
+which can lead to intricate and `error-prone` code. There is also a higher overhead associated with Thread, given the expense of creating and destroying threads. 
+Moreover, excessive threads can result in `resource contention` and `performance` issues.
+
+`Task` serves as a higher-level abstraction over threads, capable of `automatically` utilizing a thread pool to manage thread resources, 
+reducing the need for manual thread creation and destruction. Task is better suited for `asynchronous programming`. It seamlessly employs the async/await 
+keywords to facilitate handling asynchronous operations, avoiding callback hell. Task supports task organization and management, 
+including waiting for a group of tasks to complete. Additionally, Task can be used in conjunction with the `Parallel` class to enable more convenient parallel operations.
+
+In contemporary versions of C#, Task has become the more commonly used and recommended approach for multithreaded programming. It offers better utilization of system resources, higher levels of abstraction, convenience, and helps avoid pitfalls associated with multithreaded programming.
+
+`UniTask` is a specialized asynchronous programming library designed explicitly for Unity game development. It holds an advantage in managing asynchronous operations within the Unity engine, offering a lighter-weight implementation and supplementary features. If you are engaged in asynchronous programming within a Unity game project, UniTask might be the more suitable option. However, in other domains, C# Task remains the more versatile approach for asynchronous programming.
+
+I'm using a project that employs raw Threads in conjunction with UDP for communication with a lower-level device as an example to demonstrate how to replace Threads with UniTask.
+
+In this demonstration, I will showcase how to substitute the conventional Thread approach with UniTask, showcasing the benefits of enhanced asynchronous communication in a Unity environment. This transition offers improved efficiency, seamless integration with Unity's asynchronous operations, and additional functionalities tailored for game development scenarios.
 ## Implement
 
 ### Connect
